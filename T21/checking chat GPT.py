@@ -1,0 +1,9 @@
+import spacy
+nlp = spacy.load('en_core_web_md')
+# Asking Chat GPT to rewrite a sentence found online with different words and then checking for similarity, to see if it would be recognisable as plagiat
+sentence_to_compare = "The nature and extent of the injury is the first indicator that can suggest whether someone has sustained a serious injury. Life-changing injuries are serious and will typically affect the person’s daily activities to such an extent that they require extensive rehabilitation, aids and equipment, professional carers and perhaps have to move to specially adapted accommodation. The injury may also affect their life expectancy. Common Serious Injury Claims include: Brain injuries Spinal Cord Injuries Loss of eyesight or significant damage to an internal organ Loss of or amputation of a limb, Broken bones, Severe leg/foot damage impairing mobility, Severe burns"
+sentences = ["The severity and type of injury serve as initial indications that can provide insight into whether an individual has sustained a significant injury. Serious injuries have a profound impact on a person's everyday functioning, necessitating extensive rehabilitation, assistive devices, specialized caregivers, and potential relocation to adapted housing. Furthermore, such injuries can also affect their projected lifespan. Some examples of commonly encountered serious injury claims are: Traumatic brain injuries Spinal cord injuries Vision loss or substantial damage to internal organs Limb loss or amputation Fractured bones Severe damage to the legs/feet leading to impaired mobility Severe burns"]
+model_sentence = nlp(sentence_to_compare)
+for sentence in sentences:
+    similarity = nlp(sentence).similarity(model_sentence)
+    print("Level of similarity (the closer to 1 the more similar - ", similarity)

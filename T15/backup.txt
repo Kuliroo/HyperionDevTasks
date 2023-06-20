@@ -1,0 +1,122 @@
+  """if col == "-":
+            if entry_grid[row-1][col-1] == "#":
+                mines =+ 1
+            elif entry_grid[row-1][col] == "#":
+                mines =+ 1
+            elif entry_grid[row-1][col+1] == "#":
+                mines =+ 1
+            elif entry_grid[row][col-1] == "#":
+                mines =+ 1
+            elif entry_grid[row][col] == "#":
+                print("#")
+            elif entry_grid[row+1][col-1] == "#":
+                mines =+ 1
+            elif entry_grid[row+1][col] == "#":
+                mines =+ 1
+            elif entry_grid[row+1][col+1] == "#":
+                mines =+ 1
+            col = mines
+            print(col)
+        else:"""
+
+############################################
+
+for row in entry_grid:
+    for col in row:
+      if col == "-":
+            mines = 0
+            if int(col)-1 == "#" and len(row)-1 == "#":
+                mines =+ 1
+            elif len(col) == "#" and len(row)-1 == "#":
+                mines =+ 1
+            elif len(col)+1 == "#" and len(row)-1 == "#":
+                mines =+ 1
+            elif len(col)-1 == "#" and len(row) == "#":
+                mines =+ 1
+            elif len(col) == "#" and len(row) == "#":
+                print("#")
+            elif len(col)-1 == "#" and len(row)+1 == "#":
+                mines =+ 1
+            elif len(col) == "#" and len(row)+1 == "#":
+                mines =+ 1
+            elif len(col)+1 == "#" and len(row)+1 == "#":
+                mines =+ 1
+            col = mines
+            print(col)
+###################################################
+for row in entry_grid:
+    for col in row:
+       if col == "-":
+           while row[row_index-1] <= len(row) and row[row_index-1] != 0:
+               if 
+################################################################
+for index_row, row in enumerate(entry_grid, start = 0):
+    for index_column, column in enumerate(row, start=0):
+            try:
+                if entry_grid[index_row-1][index_column-1] == "#":
+                    mines =+ 1
+                elif entry_grid[index_row-1][index_column] == "#":
+                    mines =+ 1
+                elif entry_grid[index_row-1][index_column+1] == "#":
+                    mines =+ 1
+                elif entry_grid[index_row][index_column-1] == "#":
+                    mines =+ 1
+                elif entry_grid[index_row][index_column] == "#":
+                    mines =+ 1
+                elif entry_grid[index_row][index_column+1] == "#":
+                    mines =+ 1
+                elif entry_grid[index_row+1][index_column-1] == "#":
+                    mines =+ 1
+                elif entry_grid[index_row+1][index_column] == "#":
+                    mines =+ 1
+                elif entry_grid[index_row+1][index_column+1] == "#":
+                    mines =+ 1
+            except IndexError:
+               continue
+            print(mines)
+####################################################
+
+import copy
+entry_grid = [  ["-", "-", "-", "#", "#"],
+                ["-", "#", "-", "-", "-"],
+                ["-", "-", "#", "-", "-"],
+                ["-", "#", "#", "-", "-"],
+                ["-", "-", "-", "-", "-"] ]
+
+new_grid = copy.copy(entry_grid)
+rows = len(new_grid)
+for row in range(rows):
+    cols = len(new_grid[row])
+    for col in range(cols):
+        if new_grid[row][col] == "-":
+            try:
+                mines = 0
+                if row-1 >= 0 and col-1 >= 0 and new_grid[row-1][col-1] == "#":
+                    mines += 1
+                if row-1 >= 0 and new_grid[row-1][col] == "#":
+                    mines += 1
+                if row-1 >= 0 and col+1 < cols and new_grid[row-1][col+1] == "#": 
+                    mines += 1
+                if col-1 >= 0 and new_grid[row][col-1] == "#":                      
+                    mines += 1
+                if col+1 < cols and new_grid[row][col+1] == "#":
+                    mines += 1
+                if row+1 < rows and col-1 >= 0 and new_grid[row+1][col-1] == "#":
+                    mines += 1
+                if row+1 < rows and new_grid[row+1][col] == "#":
+                    mines += 1
+                if row+1 < rows and col+1 < cols and new_grid[row+1][col+1] == "#":
+                    mines += 1
+                new_grid[row][col] = str(mines)
+            except IndexError:
+                continue
+for row in range(rows):
+    print(new_grid[row])
+
+####################################
+positions = [   [-1,-1],[-1,0],[-1,1],
+                [0,-1],[0,1],[1,-1],
+                [1,-1],[1,0],[1,1]   ]
+
+for pos in range(len(positions)):
+    for 
